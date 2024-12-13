@@ -31,15 +31,24 @@ function RandomNum() {
 // Aggiorniamo i punti e i falli subiti con valori random usando un ciclo for
 
 for (let i = 0; i < squads.length; i++) {
-    squads[i].PuntiFatti = RandomNum(); 
-    squads[i].FalliSubiti = RandomNum(); 
+    const team = squads[i];
+    team.PuntiFatti = RandomNum(); 
+    team.FalliSubiti = RandomNum(); 
 }
 
 console.log("Array aggiornato con punti e falli subiti" ,squads);
 
 // creiamo un nuovo array solo con le informazioni che ci interessano 
 
-let nomiefalli = squads.map(squads => ({ nome: squads.nome, FalliSubiti: squads.FalliSubiti}));
+const nomiefalli =[];
+for (let i = 0; i < squads.length; i++) {
+    const team = squads[i];
+    nomiefalli.push({
+        nome: team.nome,
+        FalliSubiti: team.FalliSubiti
+    });
+    
+}
 
 // stampo in console il nuovo arrray
 
